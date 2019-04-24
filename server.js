@@ -125,9 +125,9 @@ app.get('/api/exercise/log/:userId',function(req,res){
     var limitedData = logData;
   }
   
-  var exerciseCount = addedExercises.filter(d=>d[_userId]).length;
+  var exerciseCount = addedExercises.filter(d=>d.userId==_userId);
   
-  limitedData.push({"total_exercise_count":exerciseCount});
+  limitedData.push({"total_exercise_count":exerciseCount.length});
   
   res.send(limitedData);
 })
